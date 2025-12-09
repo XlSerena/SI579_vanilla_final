@@ -1,20 +1,11 @@
-let count = 0;
-let timer = null;
-const num = document.getElementById('count');
-const startBtn = document.getElementById('start');
-const stopBtn = document.getElementById('stop');
-
-startBtn.addEventListener('click', () => {
-  if (timer) return;
-  timer = setInterval(() => {
-    count++;
-    num.textContent = count;
-  }, 100);
-  startBtn.disabled = true;
-});
-
-stopBtn.addEventListener('click', () => {
-  clearInterval(timer);
-  timer = null;
-  startBtn.disabled = false;
-});
+const mouseMessage = document.querySelector('#mouse-message');
+mouseMessage.addEventListener('mouseenter', (e) => {
+  console.log('MOUSE ENTER!!!')
+  e.target.textContent = 'MOUSE POINTER MOUSE POINTER!';
+})
+mouseMessage.addEventListener('mouseleave', (e) => {
+  console.log('MOUSE LEAVE!!!')
+  // same thing as e.target .... here
+  //but it's not always the same
+  mouseMessage.textContent = 'No Mouse Pointer Here!'
+})
